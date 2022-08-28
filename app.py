@@ -15,8 +15,9 @@ def home():
 def predict():
     test_features=[x for x in request.form.values()]
     final_data=pd.DataFrame([test_features],columns=['Temperature', 'Humidity'])
+    
+    final_data = final_data.reshape((final_data.shape[0], 1, final_data.shape[1]))
 
-    #final=np.array(final_data)
     prediction=model.predict(final_data)
     output=prediction
         
