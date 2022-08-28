@@ -15,6 +15,7 @@ def home():
 def predict():
     test_features=[x for x in request.form.values()]
     final_data=pd.DataFrame([test_features],columns=['Temperature', 'Humidity'])
+    final_data=pd.DataFrame.to_numpy(final_data)
     
     final_data = final_data.reshape((final_data.shape[0], 1, final_data.shape[1]))
 
