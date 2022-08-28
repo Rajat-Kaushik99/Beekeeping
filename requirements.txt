@@ -3,7 +3,5 @@ h5py
 matplotlib
 numpy
 pandas
-Pillow
-scikit-learn
 tensorflow
 sklearn
