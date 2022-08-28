@@ -3,3 +3,4 @@ h5py
 pandas
 sklearn
 Flask
+keras
