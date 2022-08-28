@@ -14,6 +14,7 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
     test_features=[x for x in request.form.values()]
+    test_features=[eval(i) for i in test_features]
     final_data=pd.DataFrame([test_features],columns=['Temperature', 'Humidity'])
     final_data=pd.DataFrame.to_numpy(final_data)
     
@@ -21,6 +22,7 @@ def predict():
 
     prediction=model.predict(final_data)
     output=prediction
+    output= output.reshape((output.shape[0], output.shape[2]))
         
     return render_template('Beekeeping.html')
     
