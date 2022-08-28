@@ -1,13 +1,10 @@
-import numpy as np
 import pandas as pd 
-from sklearn.preprocessing import MinMaxScaler
 from flask import Flask, request,render_template,jsonify
-import tensorflow as tf
 import keras
 
 app = Flask(__name__)
 
-model=tf.keras.models.load_model("Beekeeping.h5")
+model=keras.models.load_model("Beekeeping.h5")
 
 @app.route('/')
 def home():
