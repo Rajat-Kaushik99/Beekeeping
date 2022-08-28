@@ -28,21 +28,6 @@
    {{ prediction_text }}
 
  </div>
- <div class="login">
-	<h1>Beekeeping Predictive Analysis for Box H</h1>
-
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-    	<input type="number" name="Temperature" placeholder="Temperature" required="required" />
-        <input type="number" name="Humidity" placeholder="Humidity" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
-
-   <br>
-   <br>
-   {{ prediction_text }}
-
- </div>
 
 
 </body>
