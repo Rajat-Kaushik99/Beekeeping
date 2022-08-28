@@ -1,6 +1,11 @@
 import pandas as pd 
 from flask import Flask, request,render_template,jsonify
 import keras
+import json
+import plotly
+import plotly.express as px
+pd.set_option('display.max_rows', 500)
+beehive_df = pd.read_csv('beehive_humidity_temp_weight.csv')
 
 app = Flask(__name__)
 
@@ -26,7 +31,22 @@ def predict():
     
     return render_template('Beekeeping.html', prediction_text='Weight of the box f is approximately {}'.format(output))
     
+@app.route('/chart1')
+def chart1():
+    
+    fig = px.line(beehive_df, x='timestamp', y="humidity")
 
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+  
+    return render_template('notdash2.html', graphJSON=graphJSON)
+
+@app.route('/chart2')
+def chart2():
+
+    fig = px.line(beehive_df, x='timestamp', y="weight")
+
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return render_template('notdash2.html', graphJSON=graphJSON)
 if __name__=="__main__":
     pd.set_option('display.max_columns',None)
     app.run(debug=True)
