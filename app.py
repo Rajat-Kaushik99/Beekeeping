@@ -22,7 +22,7 @@ def predict():
     prediction=model.predict(final_data)
     output=prediction
         
-    return render_template('Beekeeping.html', prediction_text='Weight of the box is approximately {}'.format(output))
+    return render_template('Beekeeping.html')
     
 
 if __name__=="__main__":
