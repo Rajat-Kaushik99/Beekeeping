@@ -3,4 +3,4 @@ h5py
 pandas
 sklearn
 Flask
-tensorflow
+keras
