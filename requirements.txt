@@ -1,13 +1,9 @@
-Flask==2.0.1
 gunicorn
 h5py
 matplotlib
 numpy
 pandas
 Pillow
-pipenv
 scikit-learn
-scipy
-seaborn
 tensorflow
 sklearn
