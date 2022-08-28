@@ -22,8 +22,6 @@ def predict():
 
     prediction=model.predict(final_data)
     output=prediction
-    output= output.reshape((output.shape[0], output.shape[2]))
-        
     return render_template('Beekeeping.html')
     
 
