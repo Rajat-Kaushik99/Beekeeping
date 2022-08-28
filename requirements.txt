@@ -5,3 +5,6 @@ sklearn
 Flask
 keras
 tensorflow-cpu
+plotly
+json
+plotly.express
