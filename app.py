@@ -31,7 +31,7 @@ def predict():
     
     return render_template('Beekeeping.html', prediction_text='Weight of the box f is approximately {}'.format(output))
     
-@app.route('/predict')
+@app.route('/chart1')
 def chart1():
     
     fig = px.line(beehive_df, x='timestamp', y="humidity")
@@ -40,13 +40,39 @@ def chart1():
   
     return render_template('notdash2.html', graphJSON=graphJSON)
 
-@app.route('/predict')
+@app.route('/chart2')
 def chart2():
 
     fig = px.line(beehive_df, x='timestamp', y="weight")
 
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return render_template('notdash2.html', graphJSON=graphJSON)
+
+@app.route('/chart3')
+def chart3():
+
+    fig = px.line(beehive_df, x='timestamp', y="temperature")
+
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return render_template('notdash2.html', graphJSON=graphJSON)
+
+@app.route('/chart4')
+def chart4():
+
+    fig = px.scatter(beehive_df, x="temperature", y="weight", trendline="ols")
+
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return render_template('notdash2.html', graphJSON=graphJSON)
+
+@app.route('/chart5')
+def chart5():
+
+    fig = px.scatter(beehive_df, x="humidity", y="weight", trendline="ols")
+
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    return render_template('notdash2.html', graphJSON=graphJSON)
+
+
 if __name__=="__main__":
     pd.set_option('display.max_columns',None)
     app.run(debug=True)
